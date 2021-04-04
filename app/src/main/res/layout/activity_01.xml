@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_01_TextView_EditText_Button.Activity_01"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Write something..."
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:drawableLeft="@drawable/ic_baseline_edit_24"
+        android:drawableStart="@drawable/ic_baseline_edit_24"
+        android:drawablePadding="10dp"
+        android:id="@+id/editText"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        app:boxBackgroundColor="#fff"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_edit_24"
+            android:gravity="center|start"
+            android:id="@+id/textInputEdittext"
+            android:drawablePadding="5dp"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:hint="Text Input EditText"
+            android:drawableLeft="@drawable/ic_baseline_edit_24" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_background"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="4dp"
+        app:boxBackgroundColor="#fff"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Show details"
+        android:textAllCaps="false"
+        android:id="@+id/showTVBtn"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/viewAll"
+        android:layout_marginBottom="4dp"
+        android:text="asdfasdf"
+        android:textSize="14sp"
+        app:boxBackgroundColor="#fff"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+
+
+</LinearLayout>

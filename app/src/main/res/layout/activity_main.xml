@@ -17,6 +17,15 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView,  EditText , Button"
+                android:textAllCaps="false"
+                android:layout_margin="4dp"
+                android:padding="2dp"
+                android:id="@+id/btn1"/>
+
 
 
         </LinearLayout>
