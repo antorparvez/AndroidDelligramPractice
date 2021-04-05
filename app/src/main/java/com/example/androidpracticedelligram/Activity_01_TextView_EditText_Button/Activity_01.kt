@@ -32,6 +32,7 @@ class Activity_01 : AppCompatActivity() {
         val viewAll = findViewById<TextView>(R.id.viewAll);
 
         val submit = findViewById<Button>(R.id.showTVBtn)
+
         if (submit != null && etPassword != null && etUsername != null) {
             submit.setOnClickListener {
                 val username = etUsername.text.toString()

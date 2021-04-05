@@ -5,36 +5,37 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.widget.Toolbar
 import com.example.androidpracticedelligram.Activity_01_TextView_EditText_Button.Activity_01
+import com.example.androidpracticedelligram.activity_02_checkbox_seekbar_switch_radio_dropdown.Activity_02
 
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var button1 : Button;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button1 = findViewById(R.id.btn1);
+
+       val button1=   findViewById<Button>(R.id.btn1)
+       val button2=   findViewById<Button>(R.id.btn2)
 
 
 
 
         button1.setOnClickListener {
-            openTargetedActivity(Activity_01::class.java)
+            val intent = Intent(this, Activity_01::class.java)
+            startActivity(intent)
+
+        }
+        button2.setOnClickListener {
+            val intent = Intent(this, Activity_02::class.java)
+            startActivity(intent)
         }
 
         
     }
 
-    private fun openTargetedActivity(TargetedActivity: Class<Activity_01>) {
-
-        val intent = Intent(this, TargetedActivity)
-        startActivity(intent)
-
-
-    }
 
 
 }
