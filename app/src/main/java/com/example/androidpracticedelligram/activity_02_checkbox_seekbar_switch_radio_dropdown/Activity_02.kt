@@ -29,14 +29,21 @@ class Activity_02 : AppCompatActivity() {
 
 
         submit.setOnClickListener {
-
-
             cheboxListener()
             radioButtonListener()
             ratingBarListener()
-
-
         }
+
+        val sw1 = findViewById<Switch>(R.id.switch1)
+        sw1?.setOnCheckedChangeListener { _, isChecked ->
+            val message = if (isChecked) "Switch:ON" else "Switch:OFF"
+            Toast.makeText(
+                this, message,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+
     }
 
     private fun ratingBarListener() {
