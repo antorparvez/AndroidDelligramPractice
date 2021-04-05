@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.example.androidpracticedelligram.BaseActivity
 import com.example.androidpracticedelligram.databinding.Activity01Binding
 
-class Activity_01 : BaseActivity() {
+class Activity_textview : BaseActivity() {
 
     //View Binding
     private lateinit var binding: Activity01Binding

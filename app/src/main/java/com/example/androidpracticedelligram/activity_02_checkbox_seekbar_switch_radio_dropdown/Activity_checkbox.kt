@@ -6,7 +6,7 @@ import com.example.androidpracticedelligram.BaseActivity
 import com.example.androidpracticedelligram.R
 import com.example.androidpracticedelligram.databinding.Activity02Binding
 
-class Activity_02 : BaseActivity() {
+class Activity_checkbox : BaseActivity() {
 
     private lateinit var binding: Activity02Binding
 

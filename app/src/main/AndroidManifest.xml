@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPracticeDelligram">
-        <activity android:name=".activity_03_webview.Activity_03"></activity>
-        <activity android:name=".activity_02_checkbox_seekbar_switch_radio_dropdown.Activity_02" />
-        <activity android:name=".Activity_01_TextView_EditText_Button.Activity_01" />
+        <activity android:name=".activity_03_webview.Activity_webview"></activity>
+        <activity android:name=".activity_02_checkbox_seekbar_switch_radio_dropdown.Activity_checkbox" />
+        <activity android:name=".Activity_01_TextView_EditText_Button.Activity_textview" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

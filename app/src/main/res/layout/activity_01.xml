@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_01_TextView_EditText_Button.Activity_01"
+    tools:context=".Activity_01_TextView_EditText_Button.Activity_textview"
     android:orientation="vertical">
 
     <include layout="@layout/toolbar"
