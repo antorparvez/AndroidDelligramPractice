@@ -2,9 +2,7 @@ package com.example.androidpracticedelligram.activity_02_checkbox_seekbar_switch
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.example.androidpracticedelligram.R
@@ -26,30 +24,53 @@ class Activity_02 : AppCompatActivity() {
 
         //value init
         val submit = findViewById<Button>(R.id.showDetailButton)
-        val check1 = findViewById<CheckBox>(R.id.check1)
-        val check2 = findViewById<CheckBox>(R.id.check2)
-        val check3 = findViewById<CheckBox>(R.id.check3)
+
+
+
 
         submit.setOnClickListener {
 
 
-            //Checkbox
-            val result = StringBuilder()
-            result.append("Selected Items")
-            if ( check1 .isChecked) {
-                result.append("\n Click on check1")
-
-            }
-            if ( check2 .isChecked) {
-                result.append("\n Click on check2")
-            }
-            if ( check3 .isChecked) {
-                result.append("\n Click on check3")
-            }
-
-            Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
+            cheboxListener()
+            radioButtonListener()
 
 
         }
+    }
+
+    private fun radioButtonListener() {
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+
+        val selectedOption: Int = radioGroup!!.checkedRadioButtonId
+
+        // Assigning id of the checked radio button
+        val radioButton = findViewById<RadioButton>(selectedOption)
+
+        // Displaying text of the checked radio button in the form of toast
+        Toast.makeText(baseContext, radioButton.text, Toast.LENGTH_SHORT).show()
+
+
+    }
+
+    private fun cheboxListener() {
+        val check1 = findViewById<CheckBox>(R.id.check1)
+        val check2 = findViewById<CheckBox>(R.id.check2)
+        val check3 = findViewById<CheckBox>(R.id.check3)
+
+        //Checkbox
+        val result = StringBuilder()
+        result.append("Selected Items")
+        if ( check1 .isChecked) {
+            result.append("\n Click on check1")
+
+        }
+        if ( check2 .isChecked) {
+            result.append("\n Click on check2")
+        }
+        if ( check3 .isChecked) {
+            result.append("\n Click on check3")
+        }
+
+        Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
     }
 }
