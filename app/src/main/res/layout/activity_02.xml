@@ -82,11 +82,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Radio 2"
+            android:checked="true"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:textSize="24sp" />
 
        </RadioGroup>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Rate Now"
+        style="@style/TextAppearance.AppCompat.Title"/>
+
+
+    <RatingBar
+        android:id="@+id/rBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stepSize="0.5"
+        android:rating="2"
+        android:layout_gravity="center"
+        android:theme="@style/Widget.AppCompat.RatingBar"
+        android:numStars="5"/>
 
 
     <Button

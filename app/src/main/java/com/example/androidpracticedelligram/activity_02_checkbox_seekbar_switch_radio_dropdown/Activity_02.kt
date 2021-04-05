@@ -33,9 +33,17 @@ class Activity_02 : AppCompatActivity() {
 
             cheboxListener()
             radioButtonListener()
+            ratingBarListener()
 
 
         }
+    }
+
+    private fun ratingBarListener() {
+        val rBar = findViewById<RatingBar>(R.id.rBar)
+        val msg = rBar.rating.toString()
+        Toast.makeText(applicationContext,
+            "Rating is: "+msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun radioButtonListener() {
@@ -47,7 +55,7 @@ class Activity_02 : AppCompatActivity() {
         val radioButton = findViewById<RadioButton>(selectedOption)
 
         // Displaying text of the checked radio button in the form of toast
-        Toast.makeText(baseContext, radioButton.text, Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, radioButton.text, Toast.LENGTH_SHORT).show()
 
 
     }
