@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidpracticedelligram">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPracticeDelligram">
-        <activity android:name=".activity_03_webview.Activity_webview"></activity>
+        <activity android:name=".activity_04_picker.PickerActivity"></activity>
+        <activity android:name=".activity_03_webview.Activity_webview" />
         <activity android:name=".activity_02_checkbox_seekbar_switch_radio_dropdown.Activity_checkbox" />
         <activity android:name=".Activity_01_TextView_EditText_Button.Activity_textview" />
         <activity android:name=".MainActivity">

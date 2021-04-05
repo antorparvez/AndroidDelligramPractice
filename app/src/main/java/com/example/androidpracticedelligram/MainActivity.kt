@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.androidpracticedelligram.Activity_01_TextView_EditText_Button.Activity_textview
 import com.example.androidpracticedelligram.activity_02_checkbox_seekbar_switch_radio_dropdown.Activity_checkbox
 import com.example.androidpracticedelligram.activity_03_webview.Activity_webview
+import com.example.androidpracticedelligram.activity_04_picker.PickerActivity
 import com.example.androidpracticedelligram.databinding.ActivityMainBinding
 
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -31,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btn3.setOnClickListener {
             val intent = Intent(this, Activity_webview ::class.java)
+            startActivity(intent)
+        }
+        binding.datePickerBtn.setOnClickListener {
+            val intent = Intent(this, PickerActivity ::class.java)
             startActivity(intent)
         }
 

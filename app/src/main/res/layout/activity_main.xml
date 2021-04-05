@@ -41,6 +41,14 @@
                 android:layout_margin="4dp"
                 android:padding="2dp"
                 android:id="@+id/btn3"/>
+    <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date and Time Picker"
+                android:textAllCaps="false"
+                android:layout_margin="4dp"
+                android:padding="2dp"
+                android:id="@+id/datePickerBtn"/>
 
 
 
