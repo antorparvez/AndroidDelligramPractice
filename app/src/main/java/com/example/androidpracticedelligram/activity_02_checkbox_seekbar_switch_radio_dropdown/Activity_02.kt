@@ -1,0 +1,55 @@
+package com.example.androidpracticedelligram.activity_02_checkbox_seekbar_switch_radio_dropdown
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import com.example.androidpracticedelligram.R
+
+class Activity_02 : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_02)
+
+        // Toolbar init and set
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        toolbar?.subtitle = "Android view components"
+        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.ic_baseline_arrow_back_24)
+        toolbar?.setNavigationOnClickListener {
+            finish()
+        }
+
+
+        //value init
+        val submit = findViewById<Button>(R.id.showDetailButton)
+        val check1 = findViewById<CheckBox>(R.id.check1)
+        val check2 = findViewById<CheckBox>(R.id.check2)
+        val check3 = findViewById<CheckBox>(R.id.check3)
+
+        submit.setOnClickListener {
+
+
+            //Checkbox
+            val result = StringBuilder()
+            result.append("Selected Items")
+            if ( check1 .isChecked) {
+                result.append("\n Click on check1")
+
+            }
+            if ( check2 .isChecked) {
+                result.append("\n Click on check2")
+            }
+            if ( check3 .isChecked) {
+                result.append("\n Click on check3")
+            }
+
+            Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
+
+
+        }
+    }
+}
