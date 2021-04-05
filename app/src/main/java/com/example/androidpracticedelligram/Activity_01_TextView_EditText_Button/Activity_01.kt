@@ -1,47 +1,35 @@
 package com.example.androidpracticedelligram.Activity_01_TextView_EditText_Button
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
-import com.example.androidpracticedelligram.R
-import com.google.android.material.textfield.TextInputEditText
+import com.example.androidpracticedelligram.BaseActivity
+import com.example.androidpracticedelligram.databinding.Activity01Binding
 
-class Activity_01 : AppCompatActivity() {
+class Activity_01 : BaseActivity() {
+
+    //View Binding
+    private lateinit var binding: Activity01Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_01)
+        //viewBindning
+        binding = Activity01Binding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        toolbar?.subtitle = "Android view components"
-        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.ic_baseline_arrow_back_24)
-        toolbar?.setNavigationOnClickListener {
-            finish()
-        }
+        // init_toolbar from BaseActivity
+        initToolbar("TextView_EditText_Button")
 
 
-        val etUsername = findViewById<EditText>(R.id.editText);
-        val etPassword = findViewById<TextInputEditText>(R.id.textInputEdittext)
-        val viewAll = findViewById<TextView>(R.id.viewAll);
-
-        val submit = findViewById<Button>(R.id.showTVBtn)
-
-        if (submit != null && etPassword != null && etUsername != null) {
-            submit.setOnClickListener {
-                val username = etUsername.text.toString()
-                val password = etPassword.text.toString()
+        if (binding.showTVBtn != null && binding.textInputEdittext != null && binding.editText != null) {
+            binding.showTVBtn .setOnClickListener {
+                val username = binding.editText.text.toString()
+                val password = binding.textInputEdittext.text.toString()
 
                 Toast.makeText(applicationContext,
                         "Text 1:  $username, Text2: $password", Toast.LENGTH_SHORT).show()
 
-                viewAll.text = "Text from EditText: $username,\n Text from InputEditText: $password"
+                binding.viewAll.text = "Text from EditText: $username,\n Text from InputEditText: $password"
 
             }
         }

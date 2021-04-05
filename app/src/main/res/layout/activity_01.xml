@@ -69,7 +69,6 @@
         android:layout_marginTop="20dp"
         android:id="@+id/viewAll"
         android:layout_marginBottom="4dp"
-        android:text="asdfasdf"
         android:textSize="14sp"
         app:boxBackgroundColor="#fff"
         android:layout_marginStart="20dp"

@@ -1,45 +1,34 @@
 package com.example.androidpracticedelligram.activity_02_checkbox_seekbar_switch_radio_dropdown
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
+import com.example.androidpracticedelligram.BaseActivity
 import com.example.androidpracticedelligram.R
+import com.example.androidpracticedelligram.databinding.Activity02Binding
 
-class Activity_02 : AppCompatActivity() {
+class Activity_02 : BaseActivity() {
+
+    private lateinit var binding: Activity02Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_02)
+        binding = Activity02Binding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        // Toolbar init and set
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        toolbar?.subtitle = "Android view components"
-        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.ic_baseline_arrow_back_24)
-        toolbar?.setNavigationOnClickListener {
-            finish()
-        }
+        initToolbar("checkbox,seekbar,switch,radio,dropdown")
 
-
-        //value init
-        val submit = findViewById<Button>(R.id.showDetailButton)
-
-
-
-
-        submit.setOnClickListener {
+        binding.showDetailButton.setOnClickListener {
             cheboxListener()
             radioButtonListener()
             ratingBarListener()
         }
 
-        val sw1 = findViewById<Switch>(R.id.switch1)
-        sw1?.setOnCheckedChangeListener { _, isChecked ->
+        binding.switch1?.setOnCheckedChangeListener { _, isChecked ->
             val message = if (isChecked) "Switch:ON" else "Switch:OFF"
             Toast.makeText(
-                this, message,
-                Toast.LENGTH_SHORT
+                    this, message,
+                    Toast.LENGTH_SHORT
             ).show()
         }
 
@@ -50,7 +39,7 @@ class Activity_02 : AppCompatActivity() {
         val rBar = findViewById<RatingBar>(R.id.rBar)
         val msg = rBar.rating.toString()
         Toast.makeText(applicationContext,
-            "Rating is: "+msg, Toast.LENGTH_SHORT).show()
+                "Rating is: " + msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun radioButtonListener() {
@@ -75,14 +64,14 @@ class Activity_02 : AppCompatActivity() {
         //Checkbox
         val result = StringBuilder()
         result.append("Selected Items")
-        if ( check1 .isChecked) {
+        if (check1.isChecked) {
             result.append("\n Click on check1")
 
         }
-        if ( check2 .isChecked) {
+        if (check2.isChecked) {
             result.append("\n Click on check2")
         }
-        if ( check3 .isChecked) {
+        if (check3.isChecked) {
             result.append("\n Click on check3")
         }
 
