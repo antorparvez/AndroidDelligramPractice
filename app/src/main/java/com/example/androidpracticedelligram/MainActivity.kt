@@ -8,6 +8,7 @@ import com.example.androidpracticedelligram.ui_checkbox.CheckboxActivity
 import com.example.androidpracticedelligram.ui_webview.WebviewActivity
 import com.example.androidpracticedelligram.ui_datepicker.PickerActivity
 import com.example.androidpracticedelligram.databinding.ActivityMainBinding
+import com.example.androidpracticedelligram.ui_viewpager.ViewPagerActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,27 +23,33 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        binding.btn1.setOnClickListener {
+        binding.textViewBtn.setOnClickListener {
             val intent = Intent(this, TextViewActivity::class.java)
             startActivity(intent)
-
         }
-        binding.btn2.setOnClickListener {
+
+        binding.checkboxBtn.setOnClickListener {
             val intent = Intent(this, CheckboxActivity::class.java)
             startActivity(intent)
         }
-        binding.btn3.setOnClickListener {
-            val intent = Intent(this, WebviewActivity ::class.java)
+
+        binding.webviewBtn.setOnClickListener {
+            val intent = Intent(this, WebviewActivity::class.java)
             startActivity(intent)
         }
+
         binding.datePickerBtn.setOnClickListener {
-            val intent = Intent(this, PickerActivity ::class.java)
+            val intent = Intent(this, PickerActivity::class.java)
             startActivity(intent)
         }
 
-        
-    }
+        binding.viewPagerBtn.setOnClickListener {
+            val intent = Intent(this, ViewPagerActivity::class.java)
+            startActivity(intent)
+        }
 
+
+    }
 
 
 }

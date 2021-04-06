@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPracticeDelligram">
+        <activity android:name=".ui_viewpager.ViewPagerActivity"></activity>
         <activity android:name=".ui_datepicker.PickerActivity" />
         <activity android:name=".ui_webview.WebviewActivity" />
         <activity android:name=".ui_checkbox.CheckboxActivity" />
