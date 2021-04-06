@@ -1,16 +1,13 @@
-package com.example.androidpracticedelligram.activity_04_picker
+package com.example.androidpracticedelligram.ui_datepicker
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
 import com.example.androidpracticedelligram.BaseActivity
-import com.example.androidpracticedelligram.R
-import com.example.androidpracticedelligram.databinding.ActivityMainBinding
 import com.example.androidpracticedelligram.databinding.ActivityPickerBinding
 import java.util.*
 
@@ -27,20 +24,29 @@ class PickerActivity : BaseActivity(), DatePickerDialog.OnDateSetListener,
     var myYear: Int = 0
     var myHour: Int = 0
     var myMinute: Int = 0
+    lateinit var clickText : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityPickerBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
 
+        initVal()
         initToolbar("Date and Time Picker")
         getDatePickerDate()
 
-        binding.btnTime.setOnClickListener {
-            timePickerDialog()
+
+        binding.datePickerBtn.setOnClickListener {
+            dateTimePickerDialog()
         }
+
+
+
+    }
+
+    private fun initVal() {
 
         val calendar: Calendar = Calendar.getInstance()
         day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -49,11 +55,10 @@ class PickerActivity : BaseActivity(), DatePickerDialog.OnDateSetListener,
         hour = calendar.get(Calendar.HOUR)
         minute = calendar.get(Calendar.MINUTE)
 
-        binding.inDate.text = "$month-$day-$year\n$hour$minute"
-
+        binding.inDate.text = "Time :$hour:$minute \nDate: $month-$day-$year"
     }
 
-    private fun timePickerDialog() {
+    private fun dateTimePickerDialog() {
 
        val datePickerDialog =
             DatePickerDialog(this, this@PickerActivity, year, month,day)
@@ -72,10 +77,12 @@ class PickerActivity : BaseActivity(), DatePickerDialog.OnDateSetListener,
 
         )
 
-        { view, year, month, day ->
+        { _, year, month, day ->
             val month = month + 1
-            val msg = "You Selected: $day/$month/$year"
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            val msg = "Click items: \nSpinner DP: $day-$month-$year"
+            clickText = msg
+            Toast.makeText(applicationContext,  msg, Toast.LENGTH_SHORT).show()
+
         }
     }
 
@@ -97,7 +104,14 @@ class PickerActivity : BaseActivity(), DatePickerDialog.OnDateSetListener,
         myHour = hourOfDay
         myMinute = minute
 
-        binding.inDate.text = "$month-$day-$year\n$hour$minute"
+        val timedate = "Dialog Date: $month-$day-$year\nDialog Time$myHour:$myMinute"
+        binding.inDate.text = timedate
+
+        clickText = "$clickText \n $timedate "
+
+        binding.pickerResultTV.text=clickText
+        clickText  = "Click items: "
+
     }
 
 

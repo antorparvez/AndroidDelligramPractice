@@ -1,19 +1,19 @@
-package com.example.androidpracticedelligram.Activity_01_TextView_EditText_Button
+package com.example.androidpracticedelligram.ui_textview
 
 import android.os.Bundle
 import android.widget.Toast
 import com.example.androidpracticedelligram.BaseActivity
-import com.example.androidpracticedelligram.databinding.Activity01Binding
+import com.example.androidpracticedelligram.databinding.ActivityTextviewBinding
 
-class Activity_textview : BaseActivity() {
+class TextViewActivity : BaseActivity() {
 
     //View Binding
-    private lateinit var binding: Activity01Binding
+    private lateinit var binding: ActivityTextviewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //viewBindning
-        binding = Activity01Binding.inflate(layoutInflater)
+        binding = ActivityTextviewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
