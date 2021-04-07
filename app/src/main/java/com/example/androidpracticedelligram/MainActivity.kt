@@ -8,6 +8,7 @@ import com.example.androidpracticedelligram.ui_checkbox.CheckboxActivity
 import com.example.androidpracticedelligram.ui_webview.WebviewActivity
 import com.example.androidpracticedelligram.ui_datepicker.PickerActivity
 import com.example.androidpracticedelligram.databinding.ActivityMainBinding
+import com.example.androidpracticedelligram.ui_cardview.CardViewToastActivity
 import com.example.androidpracticedelligram.ui_viewpager.ViewPagerActivity
 
 
@@ -45,6 +46,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewPagerBtn.setOnClickListener {
             val intent = Intent(this, ViewPagerActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.cardViewBtn.setOnClickListener {
+            val intent = Intent(this, CardViewToastActivity::class.java)
             startActivity(intent)
         }
 

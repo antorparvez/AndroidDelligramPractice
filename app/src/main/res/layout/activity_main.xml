@@ -62,6 +62,15 @@
                 android:text="View Pager"
                 android:textAllCaps="false" />
 
+            <Button
+                android:id="@+id/cardViewBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:padding="2dp"
+                android:text="Cardview , Custom Toast"
+                android:textAllCaps="false" />
+
 
         </LinearLayout>
 
