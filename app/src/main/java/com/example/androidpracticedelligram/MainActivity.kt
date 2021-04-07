@@ -9,6 +9,7 @@ import com.example.androidpracticedelligram.ui_webview.WebviewActivity
 import com.example.androidpracticedelligram.ui_datepicker.PickerActivity
 import com.example.androidpracticedelligram.databinding.ActivityMainBinding
 import com.example.androidpracticedelligram.ui_cardview.CardViewToastActivity
+import com.example.androidpracticedelligram.ui_constraint_layout.ConstraintLayoutActivity
 import com.example.androidpracticedelligram.ui_viewpager.ViewPagerActivity
 
 
@@ -49,8 +50,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.cardViewBtn.setOnClickListener {
-            val intent = Intent(this, CardViewToastActivity::class.java)
+        binding.constLayoutBtn.setOnClickListener {
+            val intent = Intent(this, ConstraintLayoutActivity::class.java)
             startActivity(intent)
         }
 

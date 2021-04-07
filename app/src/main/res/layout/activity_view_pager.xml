@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context=".ui_viewpager.ViewPagerActivity">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"
+        />
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
