@@ -10,6 +10,7 @@ import com.example.androidpracticedelligram.ui_datepicker.PickerActivity
 import com.example.androidpracticedelligram.databinding.ActivityMainBinding
 import com.example.androidpracticedelligram.ui_cardview.CardViewToastActivity
 import com.example.androidpracticedelligram.ui_constraint_layout.ConstraintLayoutActivity
+import com.example.androidpracticedelligram.ui_recylerview.RecyclerViewActivity
 import com.example.androidpracticedelligram.ui_viewpager.ViewPagerActivity
 
 
@@ -52,6 +53,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.constLayoutBtn.setOnClickListener {
             val intent = Intent(this, ConstraintLayoutActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        binding.recyclerViewBtn.setOnClickListener {
+            val intent = Intent(this, RecyclerViewActivity::class.java)
             startActivity(intent)
         }
 

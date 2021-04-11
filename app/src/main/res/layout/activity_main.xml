@@ -78,6 +78,14 @@
                 android:padding="2dp"
                 android:text="const Layout Practice"
                 android:textAllCaps="false" />
+            <Button
+                android:id="@+id/recyclerViewBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:padding="2dp"
+                android:text="RecyclerView Practice"
+                android:textAllCaps="false" />
 
 
         </LinearLayout>

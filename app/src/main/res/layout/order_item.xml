@@ -285,7 +285,6 @@
                 android:layout_height="wrap_content"
                 app:barrierDirection="start"
                 android:id="@+id/barrier2"
-                app:layout_constraintGuide_percent=""
                 app:constraint_referenced_ids="item_minimum_order2"
                 />
 
