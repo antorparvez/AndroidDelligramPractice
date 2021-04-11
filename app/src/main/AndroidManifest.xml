@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPracticeDelligram">
-        <activity android:name=".ui_recylerview.RecyclerViewActivity"></activity>
+        <activity android:name=".ui_viewpager2.ViewPager2Activity"></activity>
+        <activity android:name=".ui_recylerview.RecyclerViewActivity" />
         <activity android:name=".ui_constraint_layout.ConstraintLayoutActivity" />
         <activity android:name=".ui_cardview.CardViewToastActivity" />
         <activity android:name=".ui_viewpager.ViewPagerActivity" />
