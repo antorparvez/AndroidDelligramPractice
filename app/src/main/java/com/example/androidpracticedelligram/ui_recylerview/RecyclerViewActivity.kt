@@ -91,9 +91,9 @@ class RecyclerViewActivity : BaseActivity() {
     private fun updateItemValueFromList(position: Int) {
         var dialog: AlertDialog? = null
         val builder = AlertDialog.Builder(this)
-// set the custom layout
+        // set the custom layout
         val view = layoutInflater.inflate(R.layout.custom_dialog,null)
-// Get Views references from your layout
+        // Get Views references from your layout
         val title: TextView = view.findViewById(R.id.dialog_title)
         val name: EditText = view.findViewById(R.id.et_productName)
         val price: EditText = view.findViewById(R.id.et_productPrice)
@@ -101,25 +101,46 @@ class RecyclerViewActivity : BaseActivity() {
         val updateBtn: Button = view.findViewById(R.id.updateBtn)
         val cancel: Button = view.findViewById(R.id.cancelBtn)
 
-        title.text = "Update Product"
-        name.setText(item[position].getName())
-        price.setText(item[position].getPrice())
-        offer.setText(item[position].getOffer())
+        if (position== -1){
+
+            title.text = "Add New Product"
+            name.hint = "Enter Product name"
+            price.hint="Enter Product Price"
+            offer.hint ="Ender if any offer"
+            updateBtn.text = "Add item"
+
+            updateBtn.setOnClickListener {
+                item.add(Item("${name.text}", "${price.text}","${offer.text}",R.drawable.sendododine))
+                Toast.makeText(applicationContext,"Updated",Toast.LENGTH_SHORT).show()
+                adpter.notifyItemChanged(position)
+                dialog?.dismiss()
+
+
+            }
+        }else{
+            title.text = "Update Product"
+            name.setText(item[position].getName())
+            price.setText(item[position].getPrice())
+            offer.setText(item[position].getOffer())
+
+            updateBtn.setOnClickListener {
+                val newItem =  Item("${name.text}", "${price.text}","${offer.text}",R.drawable.sendododine)
+
+                item[position] = newItem
+                Toast.makeText(applicationContext,"Updated",Toast.LENGTH_SHORT).show()
+                adpter.notifyItemChanged(position)
+                dialog?.dismiss()
+
+
+            }
+        }
+
+
 
         cancel.setOnClickListener {
             dialog?.dismiss()
         }
 
-        updateBtn.setOnClickListener {
-           val newItem =  Item("${name.text}", "${price.text}","${offer.text}",R.drawable.sendododine)
-
-            item[position] = newItem
-            Toast.makeText(applicationContext,"Updated",Toast.LENGTH_SHORT).show()
-            adpter.notifyItemChanged(position)
-            dialog?.dismiss()
-
-
-        }
 
         builder.setView(view)
 // create and show the alert dialog
@@ -136,39 +157,7 @@ class RecyclerViewActivity : BaseActivity() {
 
         fab_addItem.setOnClickListener {
 
-            var dialog: AlertDialog? = null
-            val builder = AlertDialog.Builder(this)
-// set the custom layout
-            val view = layoutInflater.inflate(R.layout.custom_dialog,null)
-// Get Views references from your layout
-            val title: TextView = view.findViewById(R.id.dialog_title)
-            val name: EditText = view.findViewById(R.id.et_productName)
-            val price: EditText = view.findViewById(R.id.et_productPrice)
-            val offer: EditText = view.findViewById(R.id.et_productOffer)
-            val updateBtn: Button = view.findViewById(R.id.updateBtn)
-            val cancel: Button = view.findViewById(R.id.cancelBtn)
-
-            title.text = "Add Product"
-
-            cancel.setOnClickListener {
-                dialog?.dismiss()
-            }
-
-            updateBtn.setOnClickListener {
-
-                item.add(Item("${name.text}", "${price.text}","${offer.text}",R.drawable.sendododine))
-
-                Toast.makeText(applicationContext,"Updated",Toast.LENGTH_SHORT).show()
-                adpter.notifyDataSetChanged()
-                dialog?.dismiss()
-
-
-            }
-
-            builder.setView(view)
-// create and show the alert dialog
-            dialog = builder.create()
-            dialog.show()
+            updateItemValueFromList(-1)
 
 
         }

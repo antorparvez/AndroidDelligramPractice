@@ -65,6 +65,7 @@ class RecyclerCustomViewAdapter(
         val item_count_minus: TextView = itemView.findViewById(R.id.item_count_minus)
         val item_count_value: TextView = itemView.findViewById(R.id.item_count_value)
         val item_count_plus: TextView = itemView.findViewById(R.id.item_count_plus)
+        val removeItem: TextView = itemView.findViewById(R.id.removeItem)
 
 
         init {
@@ -75,7 +76,7 @@ class RecyclerCustomViewAdapter(
 
             }
             /// For callback Listener
-            item_count_plus.setOnClickListener {
+            removeItem.setOnClickListener {
                 onItemRemove(adapterPosition)
             }
 

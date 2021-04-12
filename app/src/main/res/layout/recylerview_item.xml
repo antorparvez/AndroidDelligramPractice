@@ -35,15 +35,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:background="#F80053"
+            android:background="#00796B"
             android:gravity="center"
             android:text="Edit"
             android:textColor="#fff"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/removeItem"
             app:layout_constraintEnd_toEndOf="@id/row_imageView"
             app:layout_constraintStart_toStartOf="@id/row_imageView"
             app:layout_constraintTop_toBottomOf="@+id/row_imageView" />
+        <TextView
+            android:id="@+id/removeItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="#F80053"
+            android:gravity="center"
+            android:text="Remove"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/editItem"
+            app:layout_constraintStart_toStartOf="@id/editItem"
+            app:layout_constraintTop_toBottomOf="@+id/editItem" />
 
         <TextView
             android:id="@+id/item_name"
