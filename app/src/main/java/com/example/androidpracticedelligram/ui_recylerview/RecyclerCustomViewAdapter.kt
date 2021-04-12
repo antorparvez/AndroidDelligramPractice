@@ -10,10 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidpracticedelligram.R
 import com.example.androidpracticedelligram.ui_constraint_layout.Item
 
-class RecyclerCustomViewAdapter(private val itemList: List<Item>, val mContext: Context) :
+class RecyclerCustomViewAdapter(
+    private val itemList: List<Item>, private val mContext: Context,
+    /// For callback Listener
+    private val onItemUpdate: (position: Int) -> Unit,
+    private val onItemRemove: (position: Int) -> Unit
+) :
     RecyclerView.Adapter<RecyclerCustomViewAdapter.CustomViewHolder>() {
 
     lateinit var listener: AdepterClickListener
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val itemView: View =
@@ -30,14 +36,14 @@ class RecyclerCustomViewAdapter(private val itemList: List<Item>, val mContext: 
         holder.item_count_value.text = "23"
 
         holder.item_count_minus.setOnClickListener {
-            holder.item_count_value.text ="sadf"
+            holder.item_count_value.text = "sadf"
         }
 
     }
 
     private fun updateValue(toString: String) {
 
-        Toast.makeText(mContext,"$toString",Toast.LENGTH_SHORT)
+        Toast.makeText(mContext, "$toString", Toast.LENGTH_SHORT)
     }
 
     override fun getItemCount(): Int {
@@ -52,17 +58,26 @@ class RecyclerCustomViewAdapter(private val itemList: List<Item>, val mContext: 
     inner class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
 
-         val editItem: TextView = itemView.findViewById(R.id.editItem)
-         val itemName: TextView = itemView.findViewById(R.id.item_name)
-         val itemPrice: TextView = itemView.findViewById(R.id.item_price)
-         val itemOffer: TextView = itemView.findViewById(R.id.item_offer)
-         val item_count_minus: TextView = itemView.findViewById(R.id.item_count_minus)
-         val item_count_value: TextView = itemView.findViewById(R.id.item_count_value)
-         val item_count_plus: TextView = itemView.findViewById(R.id.item_count_plus)
+        val editItem: TextView = itemView.findViewById(R.id.editItem)
+        val itemName: TextView = itemView.findViewById(R.id.item_name)
+        val itemPrice: TextView = itemView.findViewById(R.id.item_price)
+        val itemOffer: TextView = itemView.findViewById(R.id.item_offer)
+        val item_count_minus: TextView = itemView.findViewById(R.id.item_count_minus)
+        val item_count_value: TextView = itemView.findViewById(R.id.item_count_value)
+        val item_count_plus: TextView = itemView.findViewById(R.id.item_count_plus)
 
 
         init {
-            editItem.setOnClickListener(this)
+            //editItem.setOnClickListener(this)
+            /// For callback Listener
+            editItem.setOnClickListener {
+                onItemUpdate(adapterPosition)
+
+            }
+            /// For callback Listener
+            item_count_plus.setOnClickListener {
+                onItemRemove(adapterPosition)
+            }
 
         }
 

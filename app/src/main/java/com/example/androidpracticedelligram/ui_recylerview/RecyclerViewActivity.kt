@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidpracticedelligram.BaseActivity
 import com.example.androidpracticedelligram.R
 import com.example.androidpracticedelligram.ui_constraint_layout.Item
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class RecyclerViewActivity : BaseActivity() {
@@ -20,6 +21,40 @@ class RecyclerViewActivity : BaseActivity() {
     lateinit var adpter: RecyclerCustomViewAdapter
     lateinit var recyclerView : RecyclerView
     private lateinit var item: ArrayList<Item>
+
+    lateinit var fab_addItem : FloatingActionButton
+
+
+    /// For callback Listener
+    private val recylerViewCustomViewAdapter by lazy {
+
+        RecyclerCustomViewAdapter(
+            item,this,
+            {position ->
+                onItemUpdate(position)
+            }
+            ,{
+                position ->
+                removeValueFromList(position)
+            }
+        )
+
+    }
+
+    private fun removeValueFromList(position: Int) {
+
+
+        item.removeAt(position)
+        adpter.notifyItemRemoved(position)
+
+    }
+
+    private fun onItemUpdate(position: Int) {
+
+        Toast.makeText(this,"$position + hi",Toast.LENGTH_SHORT).show()
+        updateItemValueFromList(position)
+
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,21 +64,24 @@ class RecyclerViewActivity : BaseActivity() {
 
         initListItem()
 
+
+
         recyclerView.layoutManager = LinearLayoutManager(
             applicationContext,
             LinearLayoutManager.VERTICAL,
             false
         )
-        adpter = RecyclerCustomViewAdapter(item, applicationContext)
+        //adpter = RecyclerCustomViewAdapter(item, applicationContext ,data)
+        adpter = recylerViewCustomViewAdapter
         recyclerView.adapter = adpter
 
 
 
-        adpter.itemClickListener(object : AdepterClickListener {
+  /*      adpter.itemClickListener(object : AdepterClickListener {
             override fun onItemClick(position: Int, view: View) {
                 updateItemValueFromList(position)
             }
-        })
+        })*/
 
 
 
@@ -77,7 +115,7 @@ class RecyclerViewActivity : BaseActivity() {
 
             item[position] = newItem
             Toast.makeText(applicationContext,"Updated",Toast.LENGTH_SHORT).show()
-            adpter.notifyDataSetChanged()
+            adpter.notifyItemChanged(position)
             dialog?.dismiss()
 
 
@@ -92,8 +130,52 @@ class RecyclerViewActivity : BaseActivity() {
     private fun initListItem() {
 
         recyclerView = findViewById(R.id.recyclerView)
+        fab_addItem = findViewById(R.id.fab_addItem)
 
         item = ArrayList()
+
+        fab_addItem.setOnClickListener {
+
+            var dialog: AlertDialog? = null
+            val builder = AlertDialog.Builder(this)
+// set the custom layout
+            val view = layoutInflater.inflate(R.layout.custom_dialog,null)
+// Get Views references from your layout
+            val title: TextView = view.findViewById(R.id.dialog_title)
+            val name: EditText = view.findViewById(R.id.et_productName)
+            val price: EditText = view.findViewById(R.id.et_productPrice)
+            val offer: EditText = view.findViewById(R.id.et_productOffer)
+            val updateBtn: Button = view.findViewById(R.id.updateBtn)
+            val cancel: Button = view.findViewById(R.id.cancelBtn)
+
+            title.text = "Add Product"
+
+            cancel.setOnClickListener {
+                dialog?.dismiss()
+            }
+
+            updateBtn.setOnClickListener {
+
+                item.add(Item("${name.text}", "${price.text}","${offer.text}",R.drawable.sendododine))
+
+                Toast.makeText(applicationContext,"Updated",Toast.LENGTH_SHORT).show()
+                adpter.notifyDataSetChanged()
+                dialog?.dismiss()
+
+
+            }
+
+            builder.setView(view)
+// create and show the alert dialog
+            dialog = builder.create()
+            dialog.show()
+
+
+        }
+
+        item.add(Item("THis is a name ", "545","99% off",R.drawable.ic_launcher_foreground))
+
+
         item.add(
             Item(
                 "সেনসোডাইন টুথপেস্ট ৭৫ গ্রাম",
