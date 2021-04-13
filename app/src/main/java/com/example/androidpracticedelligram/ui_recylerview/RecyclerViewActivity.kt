@@ -43,12 +43,15 @@ class RecyclerViewActivity : BaseActivity() {
 
     private fun removeValueFromList(position: Int) {
 
+
         item.removeAt(position)
         adpter.notifyItemRemoved(position)
 
     }
 
     private fun onItemUpdate(position: Int) {
+
+        Toast.makeText(this,"$position + hi",Toast.LENGTH_SHORT).show()
         updateItemValueFromList(position)
 
     }

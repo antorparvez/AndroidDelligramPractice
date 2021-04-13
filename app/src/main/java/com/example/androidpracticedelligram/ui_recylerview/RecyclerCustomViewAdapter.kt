@@ -14,18 +14,16 @@ class RecyclerCustomViewAdapter(
     private val itemList: List<Item>, private val mContext: Context,
     /// For callback Listener
     private val onItemUpdate: (position: Int) -> Unit,
-    private val onItemRemove: (position: Int) -> Unit): RecyclerView.Adapter<RecyclerCustomViewAdapter.CustomViewHolder>() {
+    private val onItemRemove: (position: Int) -> Unit
+) :
+    RecyclerView.Adapter<RecyclerCustomViewAdapter.CustomViewHolder>() {
 
     lateinit var listener: AdepterClickListener
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val itemView: View
-            if (viewType == 2) {
-              itemView=  LayoutInflater.from(mContext).inflate(R.layout.recylerview_item, parent, false)
-            }else{
-               itemView=  LayoutInflater.from(mContext).inflate(R.layout.order_item, parent, false)
-            }
+        val itemView: View =
+            LayoutInflater.from(mContext).inflate(R.layout.recylerview_item, parent, false)
         return CustomViewHolder(itemView)
     }
 
