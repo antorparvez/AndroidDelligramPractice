@@ -11,6 +11,7 @@ import com.example.androidpracticedelligram.databinding.ActivityMainBinding
 import com.example.androidpracticedelligram.ui_cardview.CardViewToastActivity
 import com.example.androidpracticedelligram.ui_constraint_layout.ConstraintLayoutActivity
 import com.example.androidpracticedelligram.ui_recylerview.RecyclerViewActivity
+import com.example.androidpracticedelligram.ui_recylerview_pagination.RecyelerVIewPagination
 import com.example.androidpracticedelligram.ui_viewpager.ViewPagerActivity
 import com.example.androidpracticedelligram.ui_viewpager2.ViewPager2Activity
 
@@ -64,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.viewpager2.setOnClickListener {
             val intent = Intent(this, ViewPager2Activity::class.java)
+            startActivity(intent)
+        }
+        binding.recyclerViewPaginationBtn.setOnClickListener {
+            val intent = Intent(this, RecyelerVIewPagination::class.java)
             startActivity(intent)
         }
 
