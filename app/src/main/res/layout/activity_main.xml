@@ -94,6 +94,14 @@
                 android:padding="2dp"
                 android:text="Viewpager 2 RecyclerView Adapter"
                 android:textAllCaps="false" />
+            <Button
+                android:id="@+id/recyclerViewPaginationBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:padding="2dp"
+                android:text="Recycler View Pagination"
+                android:textAllCaps="false" />
 
 
         </LinearLayout>
