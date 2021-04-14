@@ -10,9 +10,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidpracticedelligram.BaseActivity
 import com.example.androidpracticedelligram.R
 
-class RecyelerVIewPagination : AppCompatActivity() {
+class RecyelerVIewPagination : BaseActivity(){
 
     lateinit var list: java.util.ArrayList<String>
     lateinit var list2: java.util.ArrayList<String>
@@ -25,6 +26,7 @@ class RecyelerVIewPagination : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recyeler_v_iew_pagination)
 
+        initToolbar("Pagination on Recyclerview")
         initVals()
 
 

@@ -8,6 +8,9 @@
     android:background="#CAA4A4"
     tools:context=".ui_recylerview_pagination.RecyelerVIewPagination">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
 
     <Button
         android:layout_width="wrap_content"
