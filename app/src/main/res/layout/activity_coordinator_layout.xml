@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui_coordinator_layout.CoordinatorLayoutActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:theme="@style/CustomAppTheme"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorAccent"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="President Backpack"
+            android:id="@+id/collaps_toolbar">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/bluebag"
+                android:layout_gravity="center|end"
+                app:layout_collapseMode="parallax"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:id="@+id/coordinatorLT_toolbar"
+                app:layout_collapseMode="pin"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/bluebag"
+                android:layout_gravity="center|end"
+                app:layout_collapseMode="parallax"
+                android:layout_marginBottom="8dp"/> <ImageView
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/bluebag"
+            android:layout_gravity="center|end"
+            app:layout_collapseMode="parallax"
+            android:layout_marginBottom="8dp"/> <ImageView
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/bluebag"
+            android:layout_gravity="center|end"
+            app:layout_collapseMode="parallax"
+            android:layout_marginBottom="8dp"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:layout_anchor="@id/appbar"
+        android:src="@drawable/ic_baseline_shopping_cart"
+        app:layout_anchorGravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#ECF171"
+        android:focusable="true" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

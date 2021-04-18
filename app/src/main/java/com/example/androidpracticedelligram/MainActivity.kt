@@ -10,6 +10,7 @@ import com.example.androidpracticedelligram.ui_datepicker.PickerActivity
 import com.example.androidpracticedelligram.databinding.ActivityMainBinding
 import com.example.androidpracticedelligram.ui_cardview.CardViewToastActivity
 import com.example.androidpracticedelligram.ui_constraint_layout.ConstraintLayoutActivity
+import com.example.androidpracticedelligram.ui_coordinator_layout.CoordinatorLayoutActivity
 import com.example.androidpracticedelligram.ui_recylerview.RecyclerViewActivity
 import com.example.androidpracticedelligram.ui_recylerview_pagination.RecyelerVIewPagination
 import com.example.androidpracticedelligram.ui_viewpager.ViewPagerActivity
@@ -69,6 +70,11 @@ class MainActivity : AppCompatActivity() {
         }
         binding.recyclerViewPaginationBtn.setOnClickListener {
             val intent = Intent(this, RecyelerVIewPagination::class.java)
+            startActivity(intent)
+        }
+
+        binding.coordinatorLayout.setOnClickListener {
+            val intent = Intent(this, CoordinatorLayoutActivity::class.java)
             startActivity(intent)
         }
 
