@@ -15,8 +15,8 @@ import com.example.androidpracticedelligram.R
 
 class RecyelerVIewPagination : BaseActivity(){
 
-    lateinit var list: java.util.ArrayList<String>
-    lateinit var list2: java.util.ArrayList<String>
+     var list: ArrayList<String> = ArrayList()
+     var list2: ArrayList<String> = ArrayList()
     lateinit var recyclerView: RecyclerView
     lateinit var adpter: ReyclerViewPaginationAdapter
     lateinit var addBtn: Button
@@ -27,36 +27,39 @@ class RecyelerVIewPagination : BaseActivity(){
         setContentView(R.layout.activity_recyeler_v_iew_pagination)
 
         initToolbar("Pagination on Recyclerview")
-        initVals()
+        //initVals()
 
-
+        addBtn = findViewById(R.id.addBtn)
+        noItems = findViewById(R.id.no_itemTV)
 
         recyclerView = findViewById(R.id.paginationRV)
 
-        recyclerView.layoutManager = LinearLayoutManager(
-            applicationContext,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
-        adpter = ReyclerViewPaginationAdapter(list2)
-        //adpter = recylerViewCustomViewAdapter
-        recyclerView.adapter = adpter
+
+
+
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(
+                applicationContext,
+                LinearLayoutManager.VERTICAL,
+                false
+            )
+            adpter = ReyclerViewPaginationAdapter(list2)
+            //adpter = recylerViewCustomViewAdapter
+            adapter = adpter
+        }
+
 
 
 
 
         addBtn.setOnClickListener {
-            var i = 0
-            if (list2.size <= list.size) {
-                noItems.visibility = View.GONE
-                list2.add(list[i])
-                list2.add(list[i + 1])
-                list2.add(list[i + 2])
-                i += 2
-                Log.d("TAG", "onCreate: " + list2.size)
-            } else {
-                Toast.makeText(applicationContext, "no item on list", Toast.LENGTH_SHORT).show()
+
+            for ( i in 0..10){
+                list2.add("row item = $i")
+                Log.d("TAG", "onCreate: $i")
             }
+
+            Log.d("TAG", "onCreate: ${list2.size}")
             adpter.notifyDataSetChanged()
 
 
@@ -64,9 +67,9 @@ class RecyelerVIewPagination : BaseActivity(){
     }
 
     private fun initVals() {
-
+/*
         list = ArrayList()
-        list2 = ArrayList()
+        list2 = ArrayList()*/
         addBtn = findViewById(R.id.addBtn)
         noItems = findViewById(R.id.no_itemTV)
 

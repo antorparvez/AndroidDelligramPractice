@@ -24,11 +24,13 @@
         android:background="#CAA4A4"
         android:id="@+id/no_itemTV"
         android:text="No Items"
+        android:visibility="gone"
         android:gravity="center"
         android:textSize="24sp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:id="@+id/paginationRV"/>
 
 

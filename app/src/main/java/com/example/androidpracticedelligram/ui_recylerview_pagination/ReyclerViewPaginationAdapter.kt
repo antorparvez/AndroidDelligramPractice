@@ -1,5 +1,6 @@
 package com.example.androidpracticedelligram.ui_recylerview_pagination
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ class ReyclerViewPaginationAdapter(val list: List<String>) :
     private val LAYOUT_RIGHT = 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       /* val view: View =
+      /*  val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.item_right, parent, false)
          return ViewHolder(view)*/
 
@@ -42,6 +43,7 @@ class ReyclerViewPaginationAdapter(val list: List<String>) :
     }
 
     override fun getItemCount(): Int {
+        Log.d("TAG", "getItemCount: ${list.size}")
         return list.size
     }
 
