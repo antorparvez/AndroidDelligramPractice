@@ -24,8 +24,8 @@
             android:id="@+id/collaps_toolbar">
 
             <ImageView
-                android:layout_width="250dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:src="@drawable/bluebag"
                 android:layout_gravity="center|end"
                 app:layout_collapseMode="parallax"
@@ -62,11 +62,14 @@
         android:clickable="true"
         app:fabSize="normal"
         app:layout_anchor="@id/appbar"
+        android:id="@+id/fabBtn"
         android:src="@drawable/ic_baseline_shopping_cart"
         app:layout_anchorGravity="end|bottom"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:backgroundTint="#ECF171"
         android:focusable="true" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

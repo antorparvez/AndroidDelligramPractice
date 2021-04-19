@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/design_default_color_primary_dark"
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+    android:layout_height="wrap_content">
+
+
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:layout_height="wrap_content"
+        android:theme="@style/CustomAppTheme"
+        android:fitsSystemWindows="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:textColor="#fff"
+            android:drawableEnd="@drawable/ic_baseline_shopping_cart"
+            android:text="Cart"
+
+            android:drawableRight="@drawable/ic_baseline_shopping_cart" />
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorAccent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="President Backpack"
+            android:scrollbarStyle="outsideOverlay"
+            android:id="@+id/bootomsheet_toolbar">
+
+        <!--    <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:id="@+id/bottomToolbar"
+                app:layout_collapseMode="pin"/>-->
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_collapseMode="parallax"
+                android:id="@+id/bottomSheetRV"/>
+
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,22 +1,21 @@
 package com.example.androidpracticedelligram.ui_coordinator_layout
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidpracticedelligram.R
-import com.example.androidpracticedelligram.databinding.CartItemBinding
+import com.example.androidpracticedelligram.databinding.SingleCartItemBinding
 import com.example.androidpracticedelligram.ui_constraint_layout.Item
 
 class CoordinatorLT_Adapter(
     private val cartList: ArrayList<Item>,
-    private val onItemPositionClick: (position: Int) -> Unit,
+    private val onItemPositionClick: (position: Int,view:View) -> Unit,
 ): RecyclerView.Adapter<CoordinatorLT_Adapter.CartViewHolder>() {
 
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val binding = CartItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = SingleCartItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return CartViewHolder(binding)
     }
 
@@ -37,10 +36,10 @@ class CoordinatorLT_Adapter(
 
 
     //View holder inner class
-    inner  class CartViewHolder(val binding: CartItemBinding) : RecyclerView.ViewHolder(binding.root){
+    inner  class CartViewHolder(val binding: SingleCartItemBinding) : RecyclerView.ViewHolder(binding.root){
         init {
             binding.cartBtn.setOnClickListener {
-                onItemPositionClick(adapterPosition)
+                onItemPositionClick(adapterPosition,binding.cartBtn)
             }
         }
     }
