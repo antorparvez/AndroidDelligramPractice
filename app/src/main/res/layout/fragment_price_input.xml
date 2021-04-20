@@ -14,7 +14,7 @@
 
         android:layout_margin="20dp"
         android:hint="Enter Price"
-        android:id="@+id/itemNameVC"/>
+        android:id="@+id/itemPrice"/>
 
 
     <LinearLayout

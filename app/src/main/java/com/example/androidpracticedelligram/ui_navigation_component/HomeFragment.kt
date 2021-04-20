@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
 
         initLintener()
 
+
         return viewBindin.root
     }
 

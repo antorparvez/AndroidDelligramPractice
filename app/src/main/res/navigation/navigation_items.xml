@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_choseItemFragment_to_priceInputFragment"
             app:destination="@id/priceInputFragment" />
+        <argument
+            android:name="send_user_name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/viewResultFragment"
@@ -47,6 +50,12 @@
         <action
             android:id="@+id/action_priceInputFragment_to_confermationFragment"
             app:destination="@id/confermationFragment" />
+        <argument
+            android:name="send_amount"
+            app:argType="string" />
+        <argument
+            android:name="user_name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/confermationFragment"
@@ -56,5 +65,11 @@
         <action
             android:id="@+id/action_confermationFragment_to_viewResultFragment2"
             app:destination="@id/viewResultFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="string" />
     </fragment>
 </navigation>
