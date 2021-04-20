@@ -11,6 +11,7 @@ import com.example.androidpracticedelligram.databinding.ActivityMainBinding
 import com.example.androidpracticedelligram.ui_cardview.CardViewToastActivity
 import com.example.androidpracticedelligram.ui_constraint_layout.ConstraintLayoutActivity
 import com.example.androidpracticedelligram.ui_coordinator_layout.CoordinatorLayoutActivity
+import com.example.androidpracticedelligram.ui_navigation_component.NavigationMainActivity
 import com.example.androidpracticedelligram.ui_recylerview.RecyclerViewActivity
 import com.example.androidpracticedelligram.ui_recylerview_pagination.RecyelerVIewPagination
 import com.example.androidpracticedelligram.ui_viewpager.ViewPagerActivity
@@ -75,6 +76,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.coordinatorLayout.setOnClickListener {
             val intent = Intent(this, CoordinatorLayoutActivity::class.java)
+            startActivity(intent)
+        }
+        binding.navComponent.setOnClickListener {
+            val intent = Intent(this, NavigationMainActivity::class.java)
             startActivity(intent)
         }
 
