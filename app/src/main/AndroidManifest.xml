@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPracticeDelligram">
-        <activity android:name=".ui_coordinator_layout.CoordinatorLayoutActivity"></activity>
+        <activity android:name=".ui_navigation_component.NavigationMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui_coordinator_layout.CoordinatorLayoutActivity" />
         <activity android:name=".ui_recylerview_pagination.RecyelerVIewPagination" />
         <activity android:name=".ui_viewpager2.ViewPager2Activity" />
         <activity android:name=".ui_recylerview.RecyclerViewActivity" />
