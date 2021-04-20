@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#F1C9C9"
+    tools:context=".ui_navigation_component.PriceInputFragment">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="20dp"
+        android:hint="Enter Price"
+        android:id="@+id/itemNameVC"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:layout_margin="4dp"
+            android:id="@+id/cancelBtn"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/nextBtn"/>
+    </LinearLayout>
+
+</LinearLayout>

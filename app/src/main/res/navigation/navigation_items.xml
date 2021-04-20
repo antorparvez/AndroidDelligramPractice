@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_items"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.androidpracticedelligram.ui_navigation_component.HomeFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_viewTansactionFragment"
+            app:destination="@id/viewTansactionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_viewResultFragment"
+            app:destination="@id/viewResultFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_choseItemFragment"
+            app:destination="@id/choseItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewTansactionFragment"
+        android:name="com.example.androidpracticedelligram.ui_navigation_component.ViewTansactionFragment"
+        android:label="View Tansaction"
+        tools:layout="@layout/fragment_viewtansaction" />
+    <fragment
+        android:id="@+id/choseItemFragment"
+        android:name="com.example.androidpracticedelligram.ui_navigation_component.ChoseItemFragment"
+        android:label="Send Money"
+        tools:layout="@layout/fragment_chose_item" >
+        <action
+            android:id="@+id/action_choseItemFragment_to_priceInputFragment"
+            app:destination="@id/priceInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewResultFragment"
+        android:name="com.example.androidpracticedelligram.ui_navigation_component.ViewResultFragment"
+        android:label="Account Details"
+        tools:layout="@layout/fragment_view_result" />
+    <fragment
+        android:id="@+id/priceInputFragment"
+        android:name="com.example.androidpracticedelligram.ui_navigation_component.PriceInputFragment"
+        android:label="Amount input"
+        tools:layout="@layout/fragment_price_input" >
+        <action
+            android:id="@+id/action_priceInputFragment_to_confermationFragment"
+            app:destination="@id/confermationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confermationFragment"
+        android:name="com.example.androidpracticedelligram.ui_navigation_component.ConfermationFragment"
+        android:label="Confirmation"
+        tools:layout="@layout/fragment_confermation" >
+        <action
+            android:id="@+id/action_confermationFragment_to_viewResultFragment2"
+            app:destination="@id/viewResultFragment" />
+    </fragment>
+</navigation>
