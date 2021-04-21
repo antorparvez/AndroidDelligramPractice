@@ -39,9 +39,9 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        //Get value from singleton class
         val value : String = AsyncData.dataClass.name
 
-        CartFragment.newInstance("aaaa","bbbb")
         viewBinding.nameSplash.text = value
 
     }

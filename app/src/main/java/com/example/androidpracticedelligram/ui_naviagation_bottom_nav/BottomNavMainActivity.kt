@@ -25,7 +25,9 @@ class BottomNavMainActivity : AppCompatActivity() {
         viewBinding = ActivityBottomNavMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        AsyncData.dataClass.name = "Antor"
+        // put value to singleton class
+        AsyncData.dataClass.name = "name: Antor"
+        AsyncData.dataClass.age = 27
 
 
         HomeFragment.newInstance("This is Pram1", "This is Pram2")
