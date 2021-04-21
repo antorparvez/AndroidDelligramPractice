@@ -29,6 +29,10 @@ class NavigationMainActivity : AppCompatActivity() {
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp()
+    }
+
    /* override fun onSupportNavigateUp(): Boolean {
         return (Navigation.findNavController(this, id.homeFragment).navigateUp()
                 || super.onSupportNavigateUp())

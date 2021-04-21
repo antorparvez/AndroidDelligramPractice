@@ -12,10 +12,13 @@ class CoordinatorLT_Adapter(
     private val onItemPositionClick: (position: Int,view:View) -> Unit,
 ): RecyclerView.Adapter<CoordinatorLT_Adapter.CartViewHolder>() {
 
+    lateinit var  binding : SingleCartItemBinding
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val binding = SingleCartItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        binding = SingleCartItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        //binding= SingleCartItemBinding.inflate(LayoutInflater.from(parent.context))
         return CartViewHolder(binding)
     }
 

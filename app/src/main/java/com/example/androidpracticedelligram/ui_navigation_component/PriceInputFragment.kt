@@ -42,11 +42,8 @@ class PriceInputFragment : Fragment() {
         }
         viewBinding.cancelBtn.setOnClickListener {
 
-            viewBinding.cancelBtn.setOnClickListener {
-
-                // this.findNavController().popBackStack()
-                Navigation.findNavController(it).navigateUp()
-            }
+            // this.findNavController().popBackStack()
+            Navigation.findNavController(it).navigateUp()
         }
     }
 

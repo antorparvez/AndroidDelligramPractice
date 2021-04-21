@@ -19,13 +19,15 @@ class ConfermationFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        viewBinding = FragmentConfermationBinding.inflate(LayoutInflater.from(context),container,false)
+        //viewBinding = FragmentConfermationBinding.inflate(LayoutInflater.from(context),container,false)
+        viewBinding = FragmentConfermationBinding.inflate(layoutInflater)
 
         intiLintener()
 
         return viewBinding.root}
 
     private fun intiLintener() {
+
 
         val  a = arguments?.let { ConfermationFragmentArgs.fromBundle(it).name }
         val  b = arguments?.let { ConfermationFragmentArgs.fromBundle(it).amount}
