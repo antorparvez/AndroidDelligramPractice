@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notification_main_nav"
+    app:startDestination="@id/sendNotificatonFragment">
+
+    <fragment
+        android:id="@+id/sendNotificatonFragment"
+        android:name="com.example.androidpracticedelligram.ui_notification.SendNotificatonFragment"
+        android:label="fragment_send_notificaton"
+        tools:layout="@layout/fragment_send_notificaton" >
+        <action
+            android:id="@+id/action_sendNotificatonFragment_to_getNotificationFragment"
+            app:destination="@id/getNotificationFragment" />
+        <argument
+            android:name="parm1"
+            app:argType="string" />
+        <argument
+            android:name="parm2"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/getNotificationFragment"
+        android:name="com.example.androidpracticedelligram.ui_notification.GetNotificationFragment"
+        android:label="fragment_get_notification"
+        tools:layout="@layout/fragment_get_notification" >
+        <action
+            android:id="@+id/action_getNotificationFragment_to_sendNotificatonFragment"
+            app:destination="@id/sendNotificatonFragment" />
+    </fragment>
+</navigation>

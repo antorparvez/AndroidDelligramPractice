@@ -11,12 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPracticeDelligram">
-        <activity android:name=".ui_naviagation_bottom_nav.BottomNavMainActivity">
+        <activity android:name=".ui_notification.NotificationMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui_naviagation_bottom_nav.BottomNavMainActivity">
         </activity>
         <activity android:name=".ui_navigation_component.NavigationMainActivity">
 
