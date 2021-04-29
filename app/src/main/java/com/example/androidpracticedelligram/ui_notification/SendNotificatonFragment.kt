@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -18,41 +19,28 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkBuilder
 import com.example.androidpracticedelligram.R
 import com.example.androidpracticedelligram.databinding.FragmentSendNotificatonBinding
+import com.example.androidpracticedelligram.ui_navigation_component.ConfermationFragmentArgs
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.messaging.FirebaseMessaging
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SendNotificatonFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SendNotificatonFragment() : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     val NOTIFICATION_CHANNEL_ID = "my_channel_id_01"
     private var notificationId = 101
     lateinit var viewBinding: FragmentSendNotificatonBinding
-
+    lateinit var param1 :String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         viewBinding = FragmentSendNotificatonBinding.inflate(layoutInflater)
@@ -65,11 +53,27 @@ class SendNotificatonFragment() : Fragment() {
 
 
         createNotificationChannel()
+        val  argument = arguments?.let { SendNotificatonFragmentArgs.fromBundle(it).action }
 
-        viewBinding.notiSenderTV.text = param1
+        viewBinding.notiSenderTV.text = argument
         viewBinding.sendNotiBtn.setOnClickListener {
             sendNotification()
         }
+
+
+        //Firebase notification TOKEN
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("TAG", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            Log.d("tkn ", token.toString())
+         //   Toast.makeText(requireContext(), token.toString(), Toast.LENGTH_SHORT).show()
+        })
 
     }
 
@@ -100,7 +104,7 @@ class SendNotificatonFragment() : Fragment() {
     }
 
 
-    fun createNotificationChannel() {
+    private fun createNotificationChannel() {
 
         val notificationManager =
             context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -117,28 +121,4 @@ class SendNotificatonFragment() : Fragment() {
 
     }
 
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SendNotificatonFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SendNotificatonFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-
-                Log.d("TAG", "newInstance: $arguments")
-
-            }
-
-    }
 }

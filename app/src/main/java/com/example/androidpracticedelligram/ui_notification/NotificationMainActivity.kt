@@ -1,19 +1,22 @@
 package com.example.androidpracticedelligram.ui_notification
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.example.androidpracticedelligram.R
-import com.example.androidpracticedelligram.databinding.ActivityNavigationMainBinding
 import com.example.androidpracticedelligram.databinding.ActivityNotificationMainBinding
-import com.example.androidpracticedelligram.ui_naviagation_bottom_nav.HomeFragment
+
 
 class NotificationMainActivity : AppCompatActivity() {
     lateinit var viewBinding : ActivityNotificationMainBinding
     lateinit var notiController: NavController
+    var navArg : String = "none"
+     private val notifiactionArguments:Bundle  = Bundle()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityNotificationMainBinding.inflate(layoutInflater)
@@ -33,14 +36,38 @@ class NotificationMainActivity : AppCompatActivity() {
 
 
 
+
+
+
     }
 
     private fun initNavControler() {
 
+        val bundle = intent.extras
+        if (bundle != null) {
+            //bundle contains all info of "data" field of the notification
+            Log.d("TAG", "onStart: ${bundle["msg"]}")
+            navArg = intent.getStringExtra("msg").toString()
+
+        }
+
+
+       //  val bundle2 = Bundle()
+       // bundle2.putString("click_action",navArg)
+        //navController.setGraph(navController.graph,bundle)
+
         notiController = findNavController(R.id.noti_host)
+        notiController.setGraph(notiController.graph,SendNotificatonFragmentArgs(navArg).toBundle())
             //  viewBinding..setupWithNavController(navController)
         NavigationUI.setupActionBarWithNavController(this, notiController)
 
 
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+
+        return notiController.navigateUp()
+    }
+
+
 }

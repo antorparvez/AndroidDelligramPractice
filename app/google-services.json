@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "789286454163",
+    "project_id": "deligramtest",
+    "storage_bucket": "deligramtest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789286454163:android:59c8a8bab6bf50ed0b1e66",
+        "android_client_info": {
+          "package_name": "com.example.androidpracticedelligram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789286454163-u3frnokeitej7l01sl59qll0th4jga8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.androidpracticedelligram",
+            "certificate_hash": "a4347e53fde157c0dc835a9821faf0629b5d2034"
+          }
+        },
+        {
+          "client_id": "789286454163-g8bqiio5pn5gcb2otni2cj3pta17dcqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPFNvlHRAiz8QySaLaVzFA0Gl-_vH0I18"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789286454163-g8bqiio5pn5gcb2otni2cj3pta17dcqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
